@@ -25,7 +25,7 @@ function renderHeader() {
   img.classList.add("wave-logo");
 
   const name = document.createElement("span");
-  name.textContent = "Bertrand Silvana"; 
+  name.textContent = "Ball Silvina"; 
   name.classList.add("name");
   logo.appendChild(name);
 
