@@ -159,18 +159,23 @@ function showContact() {
   h2.textContent = "Contacto";
 
   const form = document.createElement("form");
+  form.setAttribute("action", "https://formsubmit.co/silvanamarilin79@gmail.com");
+  form.setAttribute("method", "POST");
 
   const name = document.createElement("input");
   name.type = "text";
+  name.name = "name"; 
   name.placeholder = "Tu nombre";
   name.required = true;
 
   const email = document.createElement("input");
   email.type = "email";
+  email.name = "email"; 
   email.placeholder = "Tu email";
   email.required = true;
 
   const message = document.createElement("textarea");
+  message.name = "message"; 
   message.placeholder = "Tu mensaje";
   message.rows = 5;
   message.required = true;
@@ -181,12 +186,6 @@ function showContact() {
 
   form.append(name, email, message, submit);
 
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();   
-    form.reset();
-  });
-
   main.appendChild(h2);
   main.appendChild(form);
 }
-
