@@ -177,13 +177,15 @@ function showContact() {
   const submit = document.createElement("input");
   submit.type = "submit";
   submit.value = "Enviar";
-
+  
   form.append(name, email, message, submit);
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();   
     form.reset();
+    alert ( "Tu mensaje fue enviado correctamente. Me comunicaré contigo a la brevedad. ")
   });
+   
 
   main.appendChild(h2);
   main.appendChild(form);
