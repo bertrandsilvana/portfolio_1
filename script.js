@@ -25,7 +25,7 @@ function renderHeader() {
   img.classList.add("wave-logo");
 
   const name = document.createElement("span");
-  name.textContent = "Ball Silvina"; 
+  name.textContent = "Bertrand Silvana"; 
   name.classList.add("name");
   logo.appendChild(name);
 
@@ -107,7 +107,6 @@ function showHome() {
 
   const img = document.createElement("img");
   img.src = "https://i.pinimg.com/736x/5d/70/74/5d707494c980b92f053797c2d36c56fa.jpg";
- // img.alt = "Imagen temática";
   img.classList.add("side-image");
 
   imageDiv.appendChild(img);
