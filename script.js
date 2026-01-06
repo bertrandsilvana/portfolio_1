@@ -25,7 +25,7 @@ function renderHeader() {
   img.classList.add("wave-logo");
 
   const name = document.createElement("span");
-  name.textContent = "Ball Silvina"; 
+  name.textContent = "Bertrand Silvana"; 
   name.classList.add("name");
   logo.appendChild(name);
 
@@ -94,20 +94,22 @@ function showHome() {
   textDiv.classList.add("home-text");
 
   const h2 = document.createElement("h2");
-  h2.textContent = "Bienvenido a mi Portfolio";
-
+  h2.textContent = "Hola, soy Silvana Bertrand";
   const p = document.createElement("p");
-  p.textContent = "Soy estudiante Tecda  y este es mi portafolio creado con JavaScript puro (SPA).";
-
+  p.textContent = "Desarrolladora de Software Junior, graduada en Análisis, Desarrollo y Programación de Aplicaciones. Me especializo en desarrollo web, participando en proyectos frontend y backend, con interés en seguir creciendo como desarrolladora full stack y formar parte de equipos de desarrollo ágiles.";
+  const small = document.createElement("small");
+  small.textContent = "Portfolio desarrollado como Single Page Application con JavaScript.";
+  
   textDiv.appendChild(h2);
   textDiv.appendChild(p);
+  textDiv.appendChild(small);
 
   const imageDiv = document.createElement("div");
   imageDiv.classList.add("home-image");
 
   const img = document.createElement("img");
-  img.src = "https://i.pinimg.com/736x/5d/70/74/5d707494c980b92f053797c2d36c56fa.jpg";
- // img.alt = "Imagen temática";
+  img.src = "./asset/img/profile.png";
+  img.alt = "Silvana Bertrand - Software Developer";
   img.classList.add("side-image");
 
   imageDiv.appendChild(img);
@@ -125,9 +127,16 @@ function showProjects() {
   const h2 = document.createElement("h2");
   h2.textContent = "Mis Proyectos";
 
+  const p = document.createElement("p");
+  p.textContent =
+  "Estos son algunos proyectos académicos y personales donde apliqué conceptos de programación, desarrollo web, trabajo con APIs y control de versiones.";
+
+
   const ul = document.createElement("ul");
 
   const projects = [
+    { name: "sababook-back",url: "https://github.com/TurcoDev/sababook-back.git"},
+    { name: "sababook-front",url: "https://github.com/TurcoDev/sababook-front.git"}, 
     { name: "To-Do List", url: "https://github.com/bertrandsilvana/To-do-List.git" },
     { name: "Gestor_proyectos", url: "https://github.com/bertrandsilvana/Gestor_de_Proyecto.git" },
     { name: "pr-actica_formulario", url: "https://github.com/bertrandsilvana/pr-ctica_formulario.git" },
@@ -147,9 +156,9 @@ function showProjects() {
   });
 
   main.appendChild(h2);
+  main.appendChild(p);
   main.appendChild(ul);
 }
-
 
 function showContact() {
   const main = document.getElementById("main-content");
@@ -158,10 +167,32 @@ function showContact() {
   const h2 = document.createElement("h2");
   h2.textContent = "Contacto";
 
+  const intro = document.createElement("p");
+  intro.textContent =
+  "Si te interesa mi perfil o querés ponerte en contacto conmigo, podés escribirme a través del siguiente formulario.";
+
+
   const form = document.createElement("form");
   form.setAttribute("action", "https://formsubmit.co/silvanamarilin79@gmail.com");
   form.setAttribute("method", "POST");
 
+  // Campos ocultos
+  const captcha = document.createElement("input");
+  captcha.type = "hidden";
+  captcha.name = "_captcha";
+  captcha.value = "false";
+
+  const subject = document.createElement("input");
+  subject.type = "hidden";
+  subject.name = "_subject";
+  subject.value = "Nuevo mensaje desde tu portfolio";
+
+  const template = document.createElement("input");
+  template.type = "hidden";
+  template.name = "_template";
+  template.value = "table";
+
+  // Campos visibles del formulario
   const name = document.createElement("input");
   name.type = "text";
   name.name = "name"; 
@@ -184,8 +215,10 @@ function showContact() {
   submit.type = "submit";
   submit.value = "Enviar";
 
-  form.append(name, email, message, submit);
+  form.append(captcha, subject, template, name, email, message, submit);
+
 
   main.appendChild(h2);
+  main.appendChild(intro);
   main.appendChild(form);
 }
