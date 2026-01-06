@@ -19,7 +19,7 @@ function renderHeader() {
   logo.classList.add("logo");
 
   const img = document.createElement("img");
-  img.src = "https://i.pinimg.com/564x/5f/6e/54/5f6e54fce0679bf675cf8bab62c66816.jpg";
+  img.src = "./asset/img/logo.jpg";
   img.alt = "Logo";
   logo.appendChild(img);
   img.classList.add("wave-logo");
@@ -60,11 +60,27 @@ function renderFooter() {
   const social = document.createElement("div");
   social.classList.add("social");
 
-  ["Facebook", "Instagram", "GitHub"].forEach(platform => {
+  const socials = [
+    {
+      name: "LinkedIn",
+      url: "https://www.linkedin.com/in/silvana-bertrand-605438312/"
+    },
+    {
+      name: "GitHub",
+      url: "https://github.com/bertrandsilvana"
+    },
+    {
+      name: "Instagram",
+      url: "https://www.instagram.com/"
+    }
+  ];
+
+  socials.forEach(item => {
     const a = document.createElement("a");
-    a.href = `https://${platform.toLowerCase()}.com`;
+    a.href = item.url;
     a.target = "_blank";
-    a.textContent = platform;
+    a.rel = "noopener noreferrer";
+    a.textContent = item.name;
     social.appendChild(a);
   });
 
@@ -72,7 +88,6 @@ function renderFooter() {
   footer.appendChild(social);
   root.appendChild(footer);
 }
-
 
 function createNavButton(text, callback) {
   const btn = document.createElement("div");
@@ -176,7 +191,7 @@ function showContact() {
   form.setAttribute("action", "https://formsubmit.co/silvanamarilin79@gmail.com");
   form.setAttribute("method", "POST");
 
-  // Campos ocultos
+  
   const captcha = document.createElement("input");
   captcha.type = "hidden";
   captcha.name = "_captcha";
@@ -192,7 +207,7 @@ function showContact() {
   template.name = "_template";
   template.value = "table";
 
-  // Campos visibles del formulario
+  
   const name = document.createElement("input");
   name.type = "text";
   name.name = "name"; 
